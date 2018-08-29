@@ -1,8 +1,11 @@
+require_relative 'slideable.rb'
+
 class Rook < Piece 
   
-  def moves 
-    @possible_moves 
-  end 
+  include Slideable
   
+  def moves 
+    self.horizontal_dirs 
+  end 
   
 end 

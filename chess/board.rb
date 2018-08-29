@@ -1,11 +1,17 @@
 require 'colorize'
 require_relative 'piece.rb'
 require_relative 'display.rb'
+require_relative 'bishop.rb'
+require_relative 'pawn.rb'
+require_relative 'rook.rb'
+require_relative 'king.rb'
+require_relative 'knight.rb'
+require_relative 'queen.rb'
 
 class Board
   attr_accessor :grid 
 
-  def initialize
+  def initialize()
     populate 
   end
 
@@ -15,7 +21,7 @@ class Board
     [
       [Rook.new(:w, self, [0,0]), Knight.new(:w, self, [0,1]), Bishop.new(:w, self, [0,2]), Queen.new(:w, self, [0,3]), King.new(:w, self, [0,4]), Bishop.new(:w, self, [0,5]), Knight.new(:w, self, [0,6]), Rook.new(:w, self, [0,7])],
       [Pawn.new(:w, self, [1,0]), Pawn.new(:w, self, [1,1]), Pawn.new(:w, self, [1,2]), Pawn.new(:w, self, [1,3]) ,Pawn.new(:w, self, [1,4]), Pawn.new(:w, self, [1,5]), Pawn.new(:w, self, [1,6]), Pawn.new(:w, self, [1,7])],
-      [NullPiece.new,NullPiece.new,NullPiece.new,NullPiece.new,NullPiece.new,NullPiece.new,NullPiece.new,NullPiece.new],
+      [Rook.new(:w, self, [2,0]),NullPiece.new,NullPiece.new,NullPiece.new,NullPiece.new,NullPiece.new,NullPiece.new,NullPiece.new],
       [NullPiece.new,NullPiece.new,NullPiece.new,NullPiece.new,NullPiece.new,NullPiece.new,NullPiece.new,NullPiece.new],
       [NullPiece.new,NullPiece.new,NullPiece.new,NullPiece.new,NullPiece.new,NullPiece.new,NullPiece.new,NullPiece.new],
       [NullPiece.new,NullPiece.new,NullPiece.new,NullPiece.new,NullPiece.new,NullPiece.new,NullPiece.new,NullPiece.new],
@@ -62,7 +68,9 @@ end
 
 if __FILE__ == $PROGRAM_NAME
   a = Board.new
-  d = Display.new(a)
-  d.test_cursor
+
+  rook = a[[2,0]]
+  p rook.moves
+   
 end 
 

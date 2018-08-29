@@ -1,19 +1,17 @@
 
 class Piece
-  attr_accessor :type, :color
+  attr_accessor :color, :piece_board, :pos
 
-  def initialize(color, board, pos)
+  def initialize(color, piece_board, pos)
     @color = color
-    @board = board 
+    @piece_board = piece_board 
     @pos = pos 
   end
   
-  def moves 
-    @possible_moves
-  end 
 
+  
   def inspect
-    p "#{@type}"
+    p "#{@pos}"
   end
   
 end
